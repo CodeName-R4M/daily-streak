@@ -3,6 +3,7 @@ class Solution:
         largest = 0
         current = 0
         befo = 0
+        
         firsta = 0 
         for i in range(len(nums)):
             if nums[i] == 1:
@@ -16,7 +17,7 @@ class Solution:
                     if current > largest:
                         largest = current
                     current = current - befo
-                    befo = current - 1 
+                    befo = current - 1  
 
         if current > largest:
             largest = current
