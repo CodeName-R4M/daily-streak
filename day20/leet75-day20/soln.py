@@ -1,4 +1,5 @@
 class Solution:
+    
     def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
         largest=0
         i=0
@@ -10,6 +11,7 @@ class Solution:
             largest=dis1
         else:
             largest=dis2
+            
         while finished==0:
             if i<len(dis1) and dis1[i] in nums2:
                 dis1.remove(dis1[i])
