@@ -5,6 +5,7 @@ class Solution:
             if num in freq:
                 freq[num] += 1
             else:
+                
                 freq[num] = 1
         counts = list(freq.values())
         return len(counts) == len(set(counts))
