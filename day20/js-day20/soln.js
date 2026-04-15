@@ -1,36 +1,18 @@
 /**
- * @param {Array<Function>} functions
- * @return {Promise<any>}
+ * @param {Object|Array} obj
+ * @return {boolean}
  */
-/**
- * @param {Array<Function>} functions
- * @return {Promise<any>}
- */
-var promiseAll = function (functions) {
-    return new Promise((resolve, reject) => {
-        let results = [];
-        let completed = 0;
-        if (functions.length === 0) {
-            resolve([]);
-            return;
+var isEmpty = function(obj) {
+    if(obj==null){
+        return false
+    }
+    if(Array.isArray(obj)){
+        if(obj.length>=1){
+            return false
         }
-        for (let i = 0; i < functions.length; i++) {
-            functions[i]()
-                .then((value) => {
-                    results[i] = value;
-                    completed++;
-
-                    if (completed === functions.length) {
-                        resolve(results);
-                    }
-                })
-                .catch((error) => {
-                    reject(error);
-                });
-        }
-    });
+    }
+    if(Object.keys(obj).length>=1){
+        return false
+    }
+    return true
 };
-/**
- * const promise = promiseAll([() => new Promise(res => res(42))])
- * promise.then(console.log); // [42]
- */
