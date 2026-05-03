@@ -1,0 +1,15 @@
+class Solution:
+    def goodNodes(self, root):
+        def dfs(node, max_so_far):
+            if not node:
+                return 0
+            
+            good = 0
+            if node.val >= max_so_far:
+                good = 1
+            
+            max_so_far = max(max_so_far, node.val)
+            
+            return good + dfs(node.left, max_so_far) + dfs(node.right, max_so_far)
+        
+        return dfs(root, root.val)
